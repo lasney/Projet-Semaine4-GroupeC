@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{{ encore_entry_link_tags('app') }}{% endblock %}
+    </head>
+	<div class="dropdown">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Menu
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    {% for section, nom in menu %}
+    <a class="dropdown-item" href="/{{ section }}">{{ nom }}</a>
+	{% endfor %}
+  </div>
+</div>
+    <body>
+        {% block body %}{% endblock %}
+		
+		<script type="text/javascript">
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+		</script>
+    </body>
+</html>
